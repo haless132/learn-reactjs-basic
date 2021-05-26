@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useHistory, useLocation, useRouteMatch } from 'react-router';
 import TodoList from '../../components/TodoList';
 import queryString from 'query-string';
+import TodoForm from '../../components/TodoForm';
 
 ListPage.propTypes = {};
 
@@ -78,13 +79,31 @@ function ListPage(props) {
   };
 
   const renderTodoList = useMemo(() => {
-    return todoList.filter((todo) => filteredStatus === 'all' || filteredStatus === todo.status);
+    return todoList.filter(
+      (todo) => filteredStatus === 'all' || filteredStatus === todo.status
+    );
   }, [todoList, filteredStatus]);
 
   console.log(renderTodoList);
 
+  const handleTodoFormSubmit = (values) => {
+    console.log('TODO FORM SUBMIT: ', values);
+    const newTodo = {
+      id: todoList.length + 1,
+      title: values.title,
+      status: 'new',
+    };
+
+    const newTodoList = [...todoList, newTodo];
+
+    setTodoList(newTodoList);
+  };
+
   return (
     <div>
+      <h2>Todo Form</h2>
+      <TodoForm onSubmit={handleTodoFormSubmit} />
+
       <h2>Todo Feature</h2>
       <TodoList todoList={renderTodoList} onTodoClick={handleTodoClick} />
 
