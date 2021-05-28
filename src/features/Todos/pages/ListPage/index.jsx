@@ -3,6 +3,7 @@ import { useHistory, useLocation, useRouteMatch } from 'react-router';
 import TodoList from '../../components/TodoList';
 import queryString from 'query-string';
 import TodoForm from '../../components/TodoForm';
+import CounterFeature from '../../../Counter';
 
 ListPage.propTypes = {};
 
@@ -112,6 +113,8 @@ function ListPage(props) {
         <button onClick={handleShowCompletedClick}>Show Compeleted</button>
         <button onClick={handleShowNewClick}>Show New</button>
       </div>
+
+      <CounterFeature />
     </div>
   );
 }

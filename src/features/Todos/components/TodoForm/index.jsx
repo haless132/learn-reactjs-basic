@@ -1,9 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import InputFeid from 'components/inputFeild';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import InputFeid from '../../../../components/inputFeild';
+// import InputFeid from '../../../../components/inputFeild';
 
 const schema = yup.object().shape({
   title: yup

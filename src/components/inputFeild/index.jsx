@@ -13,9 +13,6 @@ InputFeid.propTypes = {
 };
 
 function InputFeid({ form, name, lable, disable, showErrorMessage = true }) {
-  // const { errors, formState } = form;
-  // const hasError = formState.touched[name] && errors[name];
-
   const formState = form.formState;
   const errorMessage = formState.errors[name]?.message;
   const hasError = !!errorMessage;
@@ -26,6 +23,9 @@ function InputFeid({ form, name, lable, disable, showErrorMessage = true }) {
       name={name}
       render={({ field: { onChange, value } }) => (
         <TextField
+          variant="outlined"
+          margin="normal"
+          fullWidth
           onChange={onChange}
           value={value}
           label={lable}
