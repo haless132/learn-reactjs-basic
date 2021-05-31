@@ -37,6 +37,8 @@ function App() {
         <Route path="/todos" component={TodoFeature} />
         <Route component={NotFound} />
       </Switch>
+
+      <h2>Footer</h2>
     </div>
   );
 }
